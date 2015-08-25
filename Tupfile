@@ -1,6 +1,8 @@
+.gitignore
 PREFIX = 
 CC = $(PREFIX)gcc
 CPP = $(PREFIX)g++
+USELIB += -lsigsegv
 
 CFLAGS += -Wall
 CFLAGS += -O2
@@ -9,4 +11,4 @@ CFLAGS += -O2
 !cpp = |> $(CPP) $(CFLAGS) -c %f -o %o |> %B.o
 
 : foreach *.cpp |> !cpp |>
-: *.o |> $(CPP) %f -o %o |> meow.exe
+: *.o |> $(CPP) %f $(USELIB) -o %o |> meow.exe
