@@ -1,0 +1,12 @@
+PREFIX = 
+CC = $(PREFIX)gcc
+CPP = $(PREFIX)g++
+
+CFLAGS += -Wall
+CFLAGS += -O2
+
+!cc = |> $(CC) $(CFLAGS) -c %f -o %o |> %B.o
+!cpp = |> $(CPP) $(CFLAGS) -c %f -o %o |> %B.o
+
+: foreach *.cpp |> !cpp |>
+: *.o |> $(CPP) %f -o %o |> meow.exe
