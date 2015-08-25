@@ -6,7 +6,7 @@
 #include <cstring>
 using namespace std;
 
-#define ADDR ((void*)0x0000010000000000)
+#define ADDR ((void*)0x0000'0001'0000'0000)
 
 int sigsegvhandler(void *addr, int serious)
 {

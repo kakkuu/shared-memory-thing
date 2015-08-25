@@ -6,9 +6,11 @@ USELIB += -lsigsegv
 
 CFLAGS += -Wall
 CFLAGS += -O2
+CPPFLAGS += $(CFLAGS)
+CPPFLAGS += --std=c++14
 
 !cc = |> $(CC) $(CFLAGS) -c %f -o %o |> %B.o
-!cpp = |> $(CPP) $(CFLAGS) -c %f -o %o |> %B.o
+!cpp = |> $(CPP) $(CPPFLAGS) -c %f -o %o |> %B.o
 
 : foreach *.cpp |> !cpp |>
 : *.o |> $(CPP) %f $(USELIB) -o %o |> meow.exe
