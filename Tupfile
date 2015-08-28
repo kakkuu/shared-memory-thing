@@ -5,7 +5,7 @@ CPP = $(PREFIX)g++
 USELIB += -lsigsegv
 
 CFLAGS += -Wall
-CFLAGS += -O2
+CFLAGS += -g -O0
 CPPFLAGS += $(CFLAGS)
 CPPFLAGS += --std=c++14
 
